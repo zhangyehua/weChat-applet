@@ -1,0 +1,24 @@
+<!--pages/featured/featured.wxml-->
+<loading hidden="{{!loading}}">
+加载中...
+</loading>
+<view class="page-header">
+  <text class="page-header-text">{{title}}</text>
+</view>
+<scroll-view scroll-y="true" class="page-body">
+  <navigator url="../movie/movie?id={{item.id}}" wx:for="{{movies}}" wx:key="key">
+    <view class="item">
+      <image class="poster" src="{{item.images.small}}"></image>
+      <view class="meta">
+        <text class="title">{{item.title}}</text>
+        <text class="sub-title">{{item.original_title}}({{item.year}})</text>
+        <view class="article">
+          <text wx:for-items="{{item.directors}}" wx:key="keys">{{item.name}}</text>
+        </view>
+      </view>
+      <view class="rating">
+        <text>{{item.rating.average}}</text>
+      </view>
+    </view>
+  </navigator>
+</scroll-view>
